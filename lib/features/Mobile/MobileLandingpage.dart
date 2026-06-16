@@ -2,6 +2,7 @@ import 'package:azure_website/core/constants/Colors.dart';
 import 'package:azure_website/core/constants/Fonts.dart';
 import 'package:azure_website/core/constants/Fontsizes.dart';
 import 'package:azure_website/features/Mobile/MobileAmenitiespage.dart';
+import 'package:azure_website/features/Mobile/MobileMeetHostspage.dart';
 import 'package:azure_website/widgets/Mobile/Buttons.dart';
 import 'package:azure_website/widgets/Snakcbar.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +54,7 @@ class _MobileLandingpageState extends State<MobileLandingpage> {
         return _buildPlaceholder("Book a Reservation");
       case 3:
         // return MeetYourHostPage(width, height);
-        return _buildPlaceholder("Meet your Host");
+        return Mobilemeethostspage();
       case 4:
         // return RatesPerNightPage(width, height);
         return _buildPlaceholder("Rates Per Night");
@@ -112,7 +113,6 @@ class _MobileLandingpageState extends State<MobileLandingpage> {
                 ),
               ),
             ),
-            
           ],
         ),
       ),

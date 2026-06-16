@@ -10,7 +10,6 @@ class Mobileamenitiespage extends StatefulWidget {
   State<Mobileamenitiespage> createState() => _MobileamenitiespageState();
 }
 
-
 class _MobileamenitiespageState extends State<Mobileamenitiespage> {
   int current_photo_number = 1;
   final int number_of_photos = 5;
@@ -32,7 +31,7 @@ class _MobileamenitiespageState extends State<Mobileamenitiespage> {
   @override
   Widget build(BuildContext context) {
     double phWidth = MediaQuery.of(context).size.width;
-    double phHeight = MediaQuery.of(context).size.height;
+    // double phHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       backgroundColor: AppColors.mainBG,
@@ -48,7 +47,7 @@ class _MobileamenitiespageState extends State<Mobileamenitiespage> {
             ),
             const SizedBox(height: 30),
             Container(
-              color: Colors.white,
+              color: const Color.fromARGB(255, 202, 138, 138),
               width: phWidth,
 
               child: IntrinsicHeight(
@@ -127,6 +126,43 @@ class _MobileamenitiespageState extends State<Mobileamenitiespage> {
                   ],
                 ),
               ),
+            ),
+            Ammeneties(ammeneti_num: current_photo_number, ammeneti_reason: ""),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Ammeneties extends StatelessWidget {
+  final int ammeneti_num;
+  final String ammeneti_reason;
+  const Ammeneties({
+    required this.ammeneti_num,
+    required this.ammeneti_reason,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: AppColors.lightgrey,
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CanvaSans(
+              text: "Ammenetie???!??! No. $ammeneti_num",
+              fontsize: Fontsize.mobileH3,
+              fontWeight: FontWeight.w500,
+            ),
+            const SizedBox(height: 5),
+            CanvaSans(
+              text:
+                  "Blah blah blah.. yap yap yap... (Will be replaced with actual)",
+              fontsize: Fontsize.mobileBody,
             ),
           ],
         ),
