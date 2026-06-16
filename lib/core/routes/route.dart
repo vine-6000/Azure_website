@@ -1,6 +1,4 @@
 import 'package:azure_website/features/Landingpage.dart';
-import 'package:azure_website/features/Mobile/MobileHomepage.dart';
-import 'package:azure_website/features/Mobile/MobileLandingpage.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
@@ -12,13 +10,6 @@ final GoRouter router = GoRouter(
       name: "Landing page",
       path: "/Land",
       builder: (context, state) => const Landingpage(),
-    ),
-
-    //Mobile Routes
-    GoRoute(
-      name: "Mobile Home page",
-      path: "/MobileHome",
-      builder: (context, state) => const MobileHomegpage(),
     ),
 
     //Tablet Routes
