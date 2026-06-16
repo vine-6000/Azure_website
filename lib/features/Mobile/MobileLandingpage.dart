@@ -1,6 +1,7 @@
 import 'package:azure_website/core/constants/Colors.dart';
 import 'package:azure_website/core/constants/Fonts.dart';
 import 'package:azure_website/core/constants/Fontsizes.dart';
+import 'package:azure_website/features/Mobile/MobileAmenitiespage.dart';
 import 'package:azure_website/widgets/Mobile/Buttons.dart';
 import 'package:azure_website/widgets/Snakcbar.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,48 @@ class _MobileLandingpageState extends State<MobileLandingpage> {
         currentpage: currentpage,
       ),
       backgroundColor: AppColors.mainBG,
-      body: SizedBox.expand(child: mobilelanding(phWidth, phHeight)),
+      body: _buildBody(phWidth, phHeight),
+    );
+  }
+
+  Widget _buildBody(double width, double height) {
+    switch (currentpage) {
+      case 1:
+        return mobilelanding(width, height); // Your current landing view
+      case 2:
+        // return BookingReservationPage(width, height);
+        return _buildPlaceholder("Book a Reservation");
+      case 3:
+        // return MeetYourHostPage(width, height);
+        return _buildPlaceholder("Meet your Host");
+      case 4:
+        // return RatesPerNightPage(width, height);
+        return _buildPlaceholder("Rates Per Night");
+      case 5:
+        // return AmenitiesPage(width, height);
+        return Mobileamenitiespage();
+      default:
+        return mobilelanding(width, height); // Safe fallback
+    }
+  }
+
+  // A temporary clean visual placeholder until your files are made
+  Widget _buildPlaceholder(String title) {
+    return Center(
+      child: Column(
+        children: [
+          CanvaSans(
+            text: "$title Page",
+            fontsize: Fontsize.mobileH1,
+            fontWeight: FontWeight.bold,
+          ),
+          CanvaSans(
+            text: "Ginagawa ko pa ",
+            fontsize: Fontsize.mobileH1,
+            fontWeight: FontWeight.bold,
+          ),
+        ],
+      ),
     );
   }
 
@@ -70,6 +112,7 @@ class _MobileLandingpageState extends State<MobileLandingpage> {
                 ),
               ),
             ),
+            
           ],
         ),
       ),
@@ -153,44 +196,39 @@ class _NavigationdrawerState extends State<Navigationdrawer> {
               children: [
                 Divider(color: Colors.black38),
                 CustomNavigationTile(
-                  icon: Icons.last_page,
+                  icon: Icons.explore_outlined,
                   text: "Landing Page",
-                  onTap: () {
-                    widget.changepage(1);
-                    showAnimatedToast(context, "Still working on it :>");
-                  },
+                  changepage: widget.changepage,
+                  tileNum: 1,
+                  currentpage: widget.currentpage,
                 ),
                 CustomNavigationTile(
                   icon: Icons.confirmation_number_outlined,
                   text: "Book a Reservation",
-                  onTap: () {
-                    widget.changepage(2);
-                    showAnimatedToast(context, "Still working on it :>");
-                  },
+                  changepage: widget.changepage,
+                  tileNum: 2,
+                  currentpage: widget.currentpage,
                 ),
                 CustomNavigationTile(
                   icon: Icons.badge_outlined,
                   text: "Meet your Host",
-                  onTap: () {
-                    widget.changepage(3);
-                    showAnimatedToast(context, "Still working on it :>");
-                  },
+                  changepage: widget.changepage,
+                  tileNum: 3,
+                  currentpage: widget.currentpage,
                 ),
                 CustomNavigationTile(
                   icon: Icons.payments_outlined,
                   text: "Rates Per Night",
-                  onTap: () {
-                    widget.changepage(4);
-                    showAnimatedToast(context, "Still working on it :>");
-                  },
+                  changepage: widget.changepage,
+                  tileNum: 4,
+                  currentpage: widget.currentpage,
                 ),
                 CustomNavigationTile(
                   icon: Icons.king_bed_outlined,
                   text: "Amenities",
-                  onTap: () {
-                    widget.changepage(5);
-                    showAnimatedToast(context, "Still working on it :>");
-                  },
+                  changepage: widget.changepage,
+                  tileNum: 5,
+                  currentpage: widget.currentpage,
                 ),
               ],
             ),
@@ -204,21 +242,41 @@ class _NavigationdrawerState extends State<Navigationdrawer> {
 class CustomNavigationTile extends StatelessWidget {
   final IconData icon;
   final String text;
-  final VoidCallback onTap; // Accepts any function action now!
+  final int currentpage;
+  final int tileNum;
+  final Function(int) changepage;
 
   const CustomNavigationTile({
     super.key,
     required this.icon,
     required this.text,
-    required this.onTap,
+    required this.currentpage,
+    required this.tileNum,
+    required this.changepage,
   });
 
   @override
   Widget build(BuildContext context) {
+    bool isOnPage = currentpage == tileNum;
     return ListTile(
-      leading: Icon(icon, color: AppColors.softblack),
-      title: CanvaSans(text: text, fontsize: Fontsize.mobileH2),
-      onTap: onTap, // Assigns the passed action here
+      leading: Icon(
+        icon,
+        color: isOnPage ? AppColors.midnightluxury : AppColors.softblack,
+      ),
+      title: CanvaSans(
+        text: text,
+        fontsize: Fontsize.mobileH2,
+        fontcolor: isOnPage ? AppColors.midnightluxury : AppColors.softblack,
+      ),
+      onTap: () {
+        Navigator.of(context).pop();
+        changepage(tileNum);
+        showBeautifulSnackBar(
+          context,
+          message: "This page is still under construction >:(",
+          type: SnackBarType.warning,
+        );
+      }, // Assigns the passed action here
     );
   }
 }

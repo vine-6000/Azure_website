@@ -15,6 +15,8 @@ class AppColors {
   //Element  Colors
   static const Color lightgrey = Color.fromRGBO(240, 239, 238, 1);
 
+  //Selected
+  static const Color midnightluxury = Color.fromRGBO(26, 36, 43, 0.5);
 
   //Personal Gradients
   static const Gradient darkgradient = const LinearGradient(
