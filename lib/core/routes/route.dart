@@ -1,17 +1,32 @@
+//main Routers
 import 'package:azure_website/features/Landingpage.dart';
+
+//Phone Routes
+import 'package:azure_website/features/Mobile/MobileAmenitiespage.dart';
+
+//Tablet Routes
+
+//Web Routes
+
+//Others
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: "/Land",
+  initialLocation: "Landingpage",
   routes: <RouteBase>[
     //main Routers
     GoRoute(
-      name: "Landing page",
-      path: "/Land",
+      name: "Landingpage",
+      path: "/Landingpage",
       builder: (context, state) => const Landingpage(),
     ),
-
+    //Phone Routes
+    GoRoute(
+      name: "Amenitiesphone",
+      path: "/Amenitiesphone",
+      builder: (context, state) => const Mobileamenitiespage(),
+    ),
     //Tablet Routes
 
     //Web Routes

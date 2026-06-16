@@ -6,27 +6,43 @@ import 'package:azure_website/widgets/Snakcbar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class MobileLandingpage extends StatelessWidget {
+class MobileLandingpage extends StatefulWidget {
   const MobileLandingpage({super.key});
 
+  @override
+  State<MobileLandingpage> createState() => _MobileLandingpageState();
+}
+
+class _MobileLandingpageState extends State<MobileLandingpage> {
   @override
   Widget build(BuildContext context) {
     double phWidth = MediaQuery.of(context).size.width;
     double phHeight = MediaQuery.of(context).size.height;
+    int currentpage = 1;
+
+    void _changepage(int newpage) {
+      if (newpage != newpage) {
+        setState(() => currentpage = newpage);
+      }
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Agrandir(text: "SERENITY SUITE", spacing: 2),
         backgroundColor: AppColors.mainBG,
       ),
-      drawer: Navigationdrawer(),
+
+      drawer: Navigationdrawer(changepage: _changepage),
       backgroundColor: AppColors.mainBG,
-      body: SizedBox.expand(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [photo(phWidth, phHeight), body(phWidth, phHeight)],
-          ),
-        ),
+      body: SizedBox.expand(child: mobilelanding(phWidth, phHeight)),
+    );
+  }
+
+  Widget mobilelanding(double phWidth, double phHeight) {
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [photo(phWidth, phHeight), body(phWidth, phHeight)],
       ),
     );
   }
@@ -78,8 +94,21 @@ class MobileLandingpage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             CanvaSans(
+              text: "Looking for your next vacation in Pampanga?",
+              fontWeight: FontWeight.normal,
+              fontsize: Fontsize.mobileBody,
+            ),
+            SizedBox(height: 20),
+            CanvaSans(
               text:
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+                  "Conveniently located near the San Fernando Interchange, Serenity Suites offers the perfect escape from the everyday, providing an out-of-city resort experience while keeping you close to the vibrant attractions, dining destinations, shopping centers, and business hubs that San Fernando has to offer.",
+              fontWeight: FontWeight.normal,
+              fontsize: Fontsize.mobileBody,
+            ),
+            SizedBox(height: 20),
+            CanvaSans(
+              text:
+                  "Whether you're planning a relaxing weekend staycation, a family getaway, or a business trip with a touch of leisure, Serenity Suites combines comfort, convenience, and modern hospitality in one exceptional destination.",
               fontWeight: FontWeight.normal,
               fontsize: Fontsize.mobileBody,
             ),
@@ -90,9 +119,9 @@ class MobileLandingpage extends StatelessWidget {
   }
 }
 
-
 class Navigationdrawer extends StatefulWidget {
-  const Navigationdrawer({super.key});
+  final Function(int) changepage;
+  const Navigationdrawer({required this.changepage, super.key});
 
   @override
   State<Navigationdrawer> createState() => _NavigationdrawerState();
@@ -113,52 +142,45 @@ class _NavigationdrawerState extends State<Navigationdrawer> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Divider(color: Colors.black38),
-                ListTile(
-                  leading: Icon(
-                    Icons.confirmation_number_outlined,
-                    color: AppColors.softblack,
-                  ),
-                  title: CanvaSans(
-                    text: "Book a Reservation",
-                    fontsize: Fontsize.mobileH2,
-                  ),
-                  onTap: () =>
-                      showAnimatedToast(context, "Reservation pressed!"),
+                CustomNavigationTile(
+                  icon: Icons.last_page,
+                  text: "Landing Page",
+                  onTap: () {
+                    widget.changepage(1);
+                    showAnimatedToast(context, "Still working on it :>");
+                  },
                 ),
-                ListTile(
-                  leading: Icon(
-                    Icons.badge_outlined,
-                    color: AppColors.softblack,
-                  ),
-                  title: CanvaSans(
-                    text: "Meet your Host",
-                    fontsize: Fontsize.mobileH2,
-                  ),
-                  onTap: () =>
-                      showAnimatedToast(context, "Meet your Host pressed!"),
+                CustomNavigationTile(
+                  icon: Icons.confirmation_number_outlined,
+                  text: "Book a Reservation",
+                  onTap: () {
+                    widget.changepage(2);
+                    showAnimatedToast(context, "Still working on it :>");
+                  },
                 ),
-                ListTile(
-                  leading: Icon(
-                    Icons.payments_outlined,
-                    color: AppColors.softblack,
-                  ),
-                  title: CanvaSans(
-                    text: "Rates Per Night",
-                    fontsize: Fontsize.mobileH2,
-                  ),
-                  onTap: () =>
-                      showAnimatedToast(context, "Rates Per Night pressed!"),
+                CustomNavigationTile(
+                  icon: Icons.badge_outlined,
+                  text: "Meet your Host",
+                  onTap: () {
+                    widget.changepage(3);
+                    showAnimatedToast(context, "Still working on it :>");
+                  },
                 ),
-                ListTile(
-                  leading: Icon(
-                    Icons.king_bed_outlined,
-                    color: AppColors.softblack,
-                  ),
-                  title: CanvaSans(
-                    text: "Amenities",
-                    fontsize: Fontsize.mobileH2,
-                  ),
-                  onTap: () => showAnimatedToast(context, "Amenities pressed!"),
+                CustomNavigationTile(
+                  icon: Icons.payments_outlined,
+                  text: "Rates Per Night",
+                  onTap: () {
+                    widget.changepage(4);
+                    showAnimatedToast(context, "Still working on it :>");
+                  },
+                ),
+                CustomNavigationTile(
+                  icon: Icons.king_bed_outlined,
+                  text: "Amenities",
+                  onTap: () {
+                    widget.changepage(5);
+                    showAnimatedToast(context, "Still working on it :>");
+                  },
                 ),
               ],
             ),
@@ -169,3 +191,24 @@ class _NavigationdrawerState extends State<Navigationdrawer> {
   }
 }
 
+class CustomNavigationTile extends StatelessWidget {
+  final IconData icon;
+  final String text;
+  final VoidCallback onTap; // Accepts any function action now!
+
+  const CustomNavigationTile({
+    super.key,
+    required this.icon,
+    required this.text,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(icon, color: AppColors.softblack),
+      title: CanvaSans(text: text, fontsize: Fontsize.mobileH2),
+      onTap: onTap, // Assigns the passed action here
+    );
+  }
+}
