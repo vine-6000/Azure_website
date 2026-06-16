@@ -14,17 +14,19 @@ class MobileLandingpage extends StatefulWidget {
 }
 
 class _MobileLandingpageState extends State<MobileLandingpage> {
+  int currentpage = 1;
+
+  void changepage(int newpage) {
+    if (currentpage != newpage) {
+      debugPrint("new page is $newpage");
+      setState(() => currentpage = newpage);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double phWidth = MediaQuery.of(context).size.width;
     double phHeight = MediaQuery.of(context).size.height;
-    int currentpage = 1;
-
-    void _changepage(int newpage) {
-      if (newpage != newpage) {
-        setState(() => currentpage = newpage);
-      }
-    }
 
     return Scaffold(
       appBar: AppBar(
@@ -32,7 +34,7 @@ class _MobileLandingpageState extends State<MobileLandingpage> {
         backgroundColor: AppColors.mainBG,
       ),
 
-      drawer: Navigationdrawer(changepage: _changepage),
+      drawer: Navigationdrawer(changepage: changepage),
       backgroundColor: AppColors.mainBG,
       body: SizedBox.expand(child: mobilelanding(phWidth, phHeight)),
     );
