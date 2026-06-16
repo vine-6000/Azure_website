@@ -34,7 +34,10 @@ class _MobileLandingpageState extends State<MobileLandingpage> {
         backgroundColor: AppColors.mainBG,
       ),
 
-      drawer: Navigationdrawer(changepage: changepage),
+      drawer: Navigationdrawer(
+        changepage: changepage,
+        currentpage: currentpage,
+      ),
       backgroundColor: AppColors.mainBG,
       body: SizedBox.expand(child: mobilelanding(phWidth, phHeight)),
     );
@@ -123,7 +126,12 @@ class _MobileLandingpageState extends State<MobileLandingpage> {
 
 class Navigationdrawer extends StatefulWidget {
   final Function(int) changepage;
-  const Navigationdrawer({required this.changepage, super.key});
+  final int currentpage;
+  const Navigationdrawer({
+    required this.changepage,
+    required this.currentpage,
+    super.key,
+  });
 
   @override
   State<Navigationdrawer> createState() => _NavigationdrawerState();
