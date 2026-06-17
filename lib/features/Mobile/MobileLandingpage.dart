@@ -3,10 +3,8 @@ import 'package:azure_website/core/constants/Fonts.dart';
 import 'package:azure_website/core/constants/Fontsizes.dart';
 import 'package:azure_website/features/Mobile/MobileAmenitiespage.dart';
 import 'package:azure_website/features/Mobile/MobileMeetHostspage.dart';
-import 'package:azure_website/widgets/Mobile/Buttons.dart';
 import 'package:azure_website/widgets/Snakcbar.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class MobileLandingpage extends StatefulWidget {
   const MobileLandingpage({super.key});
