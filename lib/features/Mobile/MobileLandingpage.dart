@@ -263,7 +263,7 @@ class CustomNavigationTile extends StatelessWidget {
       ),
       title: CanvaSans(
         text: text,
-        fontsize: Fontsize.mobileH2,
+        fontsize: Fontsize.mobileH3,
         fontcolor: isOnPage ? AppColors.midnightluxury : AppColors.softblack,
       ),
       onTap: () {

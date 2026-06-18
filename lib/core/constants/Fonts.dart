@@ -37,18 +37,21 @@ class CanvaSans extends StatelessWidget {
   final double fontsize;
   final FontWeight fontWeight;
   final Color fontcolor;
+  final TextAlign textAlign;
 
   const CanvaSans({
     required this.text,
     this.fontsize = 14,
     this.fontWeight = FontWeight.normal,
     this.fontcolor = AppColors.softblack,
+    this.textAlign = TextAlign.start,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
+      textAlign: textAlign,
       text,
       style: GoogleFonts.inter(
         color: fontcolor,

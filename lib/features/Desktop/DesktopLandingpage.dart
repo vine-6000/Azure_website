@@ -3,6 +3,7 @@ import 'package:azure_website/core/constants/Fonts.dart';
 import 'package:azure_website/core/constants/Fontsizes.dart';
 import 'package:azure_website/features/Desktop/DesktopAmenities.dart';
 import 'package:azure_website/features/Desktop/DesktopBookingInfo.dart';
+import 'package:azure_website/features/Desktop/DesktopUserReviews.dart';
 import 'package:azure_website/features/Mobile/MobileAmenitiespage.dart';
 import 'package:azure_website/features/Mobile/MobileMeetHostspage.dart';
 import 'package:azure_website/widgets/Snakcbar.dart';
@@ -31,6 +32,7 @@ class _DesktopLandingpageState extends State<DesktopLandingpage> {
     double scrHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(65.0),
         child: AppBar(
@@ -114,6 +116,7 @@ class _DesktopLandingpageState extends State<DesktopLandingpage> {
           //   Divider(thickness: 5),
           DesktopBookinginfo(),
           SizedBox(height: 200),
+          Desktopuserreviews(),
           //  Divider(thickness: 5),
         ],
       ),

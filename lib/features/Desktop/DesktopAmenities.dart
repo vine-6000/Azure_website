@@ -173,6 +173,68 @@ class Ammeneties extends StatelessWidget {
     "Fresh Towels and Complimentary Guest Essentials",
     "Free Parking",
   ];
+  static final List<Widget> subheading = [
+    Column(
+      children: [
+        CanvaSans(
+          text: "Our rates are ₱200 per day per person.",
+          fontsize: Fontsize.webBody,
+          fontcolor: AppColors.softblack,
+        ),
+        CanvaSans(
+          text: "Hours of operation are from Wednesday to Monday",
+          fontsize: Fontsize.webBody,
+          fontcolor: AppColors.softblack,
+        ),
+      ],
+    ),
+    CanvaSans(text: "", fontsize: Fontsize.webBody),
+    Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        CanvaSans(
+          text: "\u2022 Refrigerator",
+          fontsize: Fontsize.webBody,
+          fontcolor: AppColors.softblack,
+        ),
+        CanvaSans(
+          text: "\u2022 Microwave",
+          fontsize: Fontsize.webBody,
+          fontcolor: AppColors.softblack,
+        ),
+        CanvaSans(
+          text: "\u2022 Kettle",
+          fontsize: Fontsize.webBody,
+          fontcolor: AppColors.softblack,
+        ),
+        CanvaSans(
+          text: "\u2022 nduction Cooker",
+          fontsize: Fontsize.webBody,
+          fontcolor: AppColors.softblack,
+        ),
+        CanvaSans(
+          text: "\u2022 Rice Cooker",
+          fontsize: Fontsize.webBody,
+          fontcolor: AppColors.softblack,
+        ),
+        CanvaSans(
+          text: "\u2022 Dining Utensils",
+          fontsize: Fontsize.webBody,
+          fontcolor: AppColors.softblack,
+        ),
+      ],
+    ),
+    CanvaSans(
+      text: "",
+      fontsize: Fontsize.webBody,
+      fontcolor: AppColors.softblack,
+    ),
+    CanvaSans(
+      text: "In front of Home Depot",
+      fontsize: Fontsize.webBody,
+      fontcolor: AppColors.softblack,
+    ),
+  ];
   const Ammeneties({
     required this.ammeneti_num,
     required this.ammeneti_reason,
@@ -191,16 +253,12 @@ class Ammeneties extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CanvaSans(
-              text: "${ammenetieHeader[ammeneti_num - 1]}",
+              text: ammenetieHeader[ammeneti_num - 1],
               fontsize: Fontsize.webH2,
               fontWeight: FontWeight.w500,
             ),
             const SizedBox(height: 5),
-            CanvaSans(
-              text:
-                  "Blah blah blah.. yap yap yap... (Will be replaced with actual)",
-              fontsize: Fontsize.webBody,
-            ),
+            subheading[ammeneti_num - 1],
           ],
         ),
       ),
