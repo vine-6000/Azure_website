@@ -8,12 +8,15 @@ class Mobilemeethostspage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double phWidth = MediaQuery.of(context).size.width;
-    double phHeight = MediaQuery.of(context).size.height;
+    double scrWitdth = MediaQuery.of(context).size.width;
+    double scrHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: AppColors.mainBG,
       body: Padding(
-        padding: EdgeInsets.only(left: phWidth * 0.075, right: phWidth * 0.075),
+        padding: EdgeInsets.only(
+          left: scrWitdth * 0.075,
+          right: scrWitdth * 0.075,
+        ),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,

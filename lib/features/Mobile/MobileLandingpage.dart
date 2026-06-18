@@ -25,8 +25,8 @@ class _MobileLandingpageState extends State<MobileLandingpage> {
 
   @override
   Widget build(BuildContext context) {
-    double phWidth = MediaQuery.of(context).size.width;
-    double phHeight = MediaQuery.of(context).size.height;
+    double scrWitdth = MediaQuery.of(context).size.width;
+    double scrHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       appBar: AppBar(
@@ -39,7 +39,7 @@ class _MobileLandingpageState extends State<MobileLandingpage> {
         currentpage: currentpage,
       ),
       backgroundColor: AppColors.mainBG,
-      body: _buildBody(phWidth, phHeight),
+      body: _buildBody(scrWitdth, scrHeight),
     );
   }
 
@@ -84,16 +84,16 @@ class _MobileLandingpageState extends State<MobileLandingpage> {
     );
   }
 
-  Widget mobilelanding(double phWidth, double phHeight) {
+  Widget mobilelanding(double scrWitdth, double scrHeight) {
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: [photo(phWidth, phHeight), body(phWidth, phHeight)],
+        children: [photo(scrWitdth, scrHeight), body(scrWitdth, scrHeight)],
       ),
     );
   }
 
-  Widget photo(double phWidth, double phHeight) {
+  Widget photo(double scrWitdth, double scrHeight) {
     return IntrinsicHeight(
       child: SizedBox(
         child: Stack(
@@ -117,9 +117,9 @@ class _MobileLandingpageState extends State<MobileLandingpage> {
     );
   }
 
-  Widget body(double phWidth, double phHeight) {
+  Widget body(double scrWitdth, double scrHeight) {
     return Padding(
-      padding: EdgeInsets.all(phWidth * 0.1),
+      padding: EdgeInsets.all(scrWitdth * 0.1),
       child: SizedBox(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

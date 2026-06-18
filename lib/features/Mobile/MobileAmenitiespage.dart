@@ -30,8 +30,8 @@ class _MobileamenitiespageState extends State<Mobileamenitiespage> {
 
   @override
   Widget build(BuildContext context) {
-    double phWidth = MediaQuery.of(context).size.width;
-    // double phHeight = MediaQuery.of(context).size.height;
+    double scrWitdth = MediaQuery.of(context).size.width;
+    // double scrHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       backgroundColor: AppColors.mainBG,
@@ -48,7 +48,7 @@ class _MobileamenitiespageState extends State<Mobileamenitiespage> {
             const SizedBox(height: 30),
             Container(
               color: const Color.fromARGB(255, 202, 138, 138),
-              width: phWidth,
+              width: scrWitdth,
 
               child: IntrinsicHeight(
                 child: Stack(

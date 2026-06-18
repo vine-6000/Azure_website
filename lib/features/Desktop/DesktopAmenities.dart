@@ -31,7 +31,7 @@ class _DesktopAmenitiesState extends State<DesktopAmenities> {
   @override
   Widget build(BuildContext context) {
     double scrWidth = MediaQuery.of(context).size.width;
-    // double phHeight = MediaQuery.of(context).size.height;
+    // double scrHeight = MediaQuery.of(context).size.height;
 
     void leftameneties() {
       if (current_photo_number > 1) {
@@ -61,7 +61,7 @@ class _DesktopAmenitiesState extends State<DesktopAmenities> {
           ),
           const SizedBox(height: 30),
           Container(
-            color: const Color.fromARGB(255, 202, 138, 138),
+            color: AppColors.softWhite,
             width: scrWidth,
             height: 600,
 
@@ -93,6 +93,7 @@ class _DesktopAmenitiesState extends State<DesktopAmenities> {
                           child: Ammeneties(
                             ammeneti_num: current_photo_number,
                             ammeneti_reason: "",
+                            scrWidth: scrWidth,
                           ),
                         ),
                       ],
@@ -163,9 +164,19 @@ Widget rightbutton(Function() changeAmenneties) {
 class Ammeneties extends StatelessWidget {
   final int ammeneti_num;
   final String ammeneti_reason;
+  final double scrWidth;
+
+  static final List<String> ammenetieHeader = [
+    "Wave Pool and Man-made Beach Access",
+    "Complimentary High-Speed Wi-Fi and Unlimited Netflix",
+    "Complete Kitchen Facilities, including:",
+    "Fresh Towels and Complimentary Guest Essentials",
+    "Free Parking",
+  ];
   const Ammeneties({
     required this.ammeneti_num,
     required this.ammeneti_reason,
+    required this.scrWidth,
     super.key,
   });
 
@@ -174,20 +185,21 @@ class Ammeneties extends StatelessWidget {
     return Container(
       color: AppColors.lightgrey,
       child: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(scrWidth * 0.06),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CanvaSans(
-              text: "Ammenetie???!??! No. $ammeneti_num",
-              fontsize: Fontsize.mobileH3,
+              text: "${ammenetieHeader[ammeneti_num - 1]}",
+              fontsize: Fontsize.webH2,
               fontWeight: FontWeight.w500,
             ),
             const SizedBox(height: 5),
             CanvaSans(
               text:
                   "Blah blah blah.. yap yap yap... (Will be replaced with actual)",
-              fontsize: Fontsize.mobileBody,
+              fontsize: Fontsize.webBody,
             ),
           ],
         ),

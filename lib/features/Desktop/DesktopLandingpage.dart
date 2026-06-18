@@ -2,6 +2,7 @@ import 'package:azure_website/core/constants/Colors.dart';
 import 'package:azure_website/core/constants/Fonts.dart';
 import 'package:azure_website/core/constants/Fontsizes.dart';
 import 'package:azure_website/features/Desktop/DesktopAmenities.dart';
+import 'package:azure_website/features/Desktop/DesktopBookingInfo.dart';
 import 'package:azure_website/features/Mobile/MobileAmenitiespage.dart';
 import 'package:azure_website/features/Mobile/MobileMeetHostspage.dart';
 import 'package:azure_website/widgets/Snakcbar.dart';
@@ -31,10 +32,10 @@ class _DesktopLandingpageState extends State<DesktopLandingpage> {
 
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80.0),
+        preferredSize: const Size.fromHeight(65.0),
         child: AppBar(
           title: Padding(
-            padding: const EdgeInsets.only(top: 20.0),
+            padding: const EdgeInsets.only(top: 10.0),
             child: Agrandir(
               text: "SERENITY SUITE",
               spacing: 2,
@@ -43,7 +44,7 @@ class _DesktopLandingpageState extends State<DesktopLandingpage> {
           ),
           backgroundColor: AppColors.mainBG,
           shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(50.0)),
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(15.0)),
           ),
           centerTitle: true,
         ),
@@ -61,7 +62,7 @@ class _DesktopLandingpageState extends State<DesktopLandingpage> {
   Widget _buildBody(double width, double height) {
     switch (currentpage) {
       case 1:
-        return mobilelanding(width, height); // Your current landing view
+        return desktoplanding(width, height); // Your current landing view
       case 2:
         // return BookingReservationPage(width, height);
         return _buildPlaceholder("Book a Reservation");
@@ -75,7 +76,7 @@ class _DesktopLandingpageState extends State<DesktopLandingpage> {
         // return AmenitiesPage(width, height);
         return Mobileamenitiespage();
       default:
-        return mobilelanding(width, height); // Safe fallback
+        return desktoplanding(width, height); // Safe fallback
     }
   }
 
@@ -99,14 +100,21 @@ class _DesktopLandingpageState extends State<DesktopLandingpage> {
     );
   }
 
-  Widget mobilelanding(double scrWidth, double scrHeight) {
+  Widget desktoplanding(double scrWidth, double scrHeight) {
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           photo(scrWidth, scrHeight),
           body(scrWidth, scrHeight),
+          SizedBox(height: scrWidth * 0.05),
+          Divider(thickness: 5),
+          SizedBox(height: scrWidth * 0.05),
           DesktopAmenities(),
+          SizedBox(height: scrWidth * 0.05),
+          Divider(thickness: 5),
+          Desktopbookinginfo(),
+          SizedBox(height: scrWidth * 0.08),
         ],
       ),
     );
@@ -142,9 +150,9 @@ class _DesktopLandingpageState extends State<DesktopLandingpage> {
     );
   }
 
-  Widget body(double phWidth, double phHeight) {
+  Widget body(double scrWitdth, double scrHeight) {
     return Padding(
-      padding: EdgeInsets.all(phWidth * 0.035),
+      padding: EdgeInsets.all(scrWitdth * 0.035),
       child: SizedBox(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
