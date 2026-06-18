@@ -104,17 +104,17 @@ class _DesktopLandingpageState extends State<DesktopLandingpage> {
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           photo(scrWidth, scrHeight),
           body(scrWidth, scrHeight),
-          SizedBox(height: scrWidth * 0.05),
-          Divider(thickness: 5),
-          SizedBox(height: scrWidth * 0.05),
+          SizedBox(height: 100),
           DesktopAmenities(),
-          SizedBox(height: scrWidth * 0.05),
-          Divider(thickness: 5),
-          Desktopbookinginfo(),
-          SizedBox(height: scrWidth * 0.08),
+          SizedBox(height: 100),
+          //   Divider(thickness: 5),
+          DesktopBookinginfo(),
+          SizedBox(height: 200),
+          //  Divider(thickness: 5),
         ],
       ),
     );
