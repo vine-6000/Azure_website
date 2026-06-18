@@ -222,52 +222,53 @@ class _NavigationdrawerState extends State<Navigationdrawer> {
       backgroundColor: AppColors.mainBG,
 
       children: [
-        SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(10, 30, 5, 0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Divider(color: Colors.black38),
-                CustomNavigationTile(
-                  icon: Icons.explore_outlined,
-                  text: "Landing Page",
-                  changepage: widget.changepage,
-                  tileNum: 1,
-                  currentpage: widget.currentpage,
-                ),
-                CustomNavigationTile(
-                  icon: Icons.confirmation_number_outlined,
-                  text: "Book a Reservation",
-                  changepage: widget.changepage,
-                  tileNum: 2,
-                  currentpage: widget.currentpage,
-                ),
-                CustomNavigationTile(
-                  icon: Icons.badge_outlined,
-                  text: "Meet your Host",
-                  changepage: widget.changepage,
-                  tileNum: 3,
-                  currentpage: widget.currentpage,
-                ),
-                CustomNavigationTile(
-                  icon: Icons.payments_outlined,
-                  text: "Rates Per Night",
-                  changepage: widget.changepage,
-                  tileNum: 4,
-                  currentpage: widget.currentpage,
-                ),
-                CustomNavigationTile(
-                  icon: Icons.king_bed_outlined,
-                  text: "Amenities",
-                  changepage: widget.changepage,
-                  tileNum: 5,
-                  currentpage: widget.currentpage,
-                ),
-              ],
-            ),
-          ),
-        ),
+        CanvaSans(text: "Under construction"),
+        // SingleChildScrollView(
+        //   child: Padding(
+        //     padding: const EdgeInsets.fromLTRB(10, 30, 5, 0),
+        //     child: Column(
+        //       crossAxisAlignment: CrossAxisAlignment.stretch,
+        //       children: [
+        //         Divider(color: Colors.black38),
+        //         CustomNavigationTile(
+        //           icon: Icons.explore_outlined,
+        //           text: "Landing Page",
+        //           changepage: widget.changepage,
+        //           tileNum: 1,
+        //           currentpage: widget.currentpage,
+        //         ),
+        //         CustomNavigationTile(
+        //           icon: Icons.confirmation_number_outlined,
+        //           text: "Book a Reservation",
+        //           changepage: widget.changepage,
+        //           tileNum: 2,
+        //           currentpage: widget.currentpage,
+        //         ),
+        //         CustomNavigationTile(
+        //           icon: Icons.badge_outlined,
+        //           text: "Meet your Host",
+        //           changepage: widget.changepage,
+        //           tileNum: 3,
+        //           currentpage: widget.currentpage,
+        //         ),
+        //         CustomNavigationTile(
+        //           icon: Icons.payments_outlined,
+        //           text: "Rates Per Night",
+        //           changepage: widget.changepage,
+        //           tileNum: 4,
+        //           currentpage: widget.currentpage,
+        //         ),
+        //         CustomNavigationTile(
+        //           icon: Icons.king_bed_outlined,
+        //           text: "Amenities",
+        //           changepage: widget.changepage,
+        //           tileNum: 5,
+        //           currentpage: widget.currentpage,
+        //         ),
+        //       ],
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }
