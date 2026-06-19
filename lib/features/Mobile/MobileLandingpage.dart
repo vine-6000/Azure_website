@@ -1,8 +1,9 @@
 import 'package:azure_website/core/constants/Colors.dart';
 import 'package:azure_website/core/constants/Fonts.dart';
 import 'package:azure_website/core/constants/Fontsizes.dart';
-import 'package:azure_website/features/Mobile/MobileAmenitiespage.dart';
+import 'package:azure_website/features/Mobile/MobileAmenities.dart';
 import 'package:azure_website/features/Mobile/MobileMeetHostspage.dart';
+import 'package:azure_website/features/Mobile/MobileUserReviews.dart';
 import 'package:azure_website/widgets/Snakcbar.dart';
 import 'package:flutter/material.dart';
 
@@ -45,8 +46,6 @@ class _MobileLandingpageState extends State<MobileLandingpage> {
 
   Widget _buildBody(double width, double height) {
     switch (currentpage) {
-      case 1:
-        return mobilelanding(width, height); // Your current landing view
       case 2:
         // return BookingReservationPage(width, height);
         return _buildPlaceholder("Book a Reservation");
@@ -56,11 +55,23 @@ class _MobileLandingpageState extends State<MobileLandingpage> {
       case 4:
         // return RatesPerNightPage(width, height);
         return _buildPlaceholder("Rates Per Night");
-      case 5:
-        // return AmenitiesPage(width, height);
-        return Mobileamenitiespage();
+      // case 5:
+      //   // return AmenitiesPage(width, height);
+      //   return Mobileamenitiespage();
       default:
-        return mobilelanding(width, height); // Safe fallback
+        return SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              photo(width, height),
+              body(width, height),
+              SizedBox(height: 30),
+              Mobileamenitiespage(),
+              SizedBox(height: 30),
+              MobileUserReviews(),
+            ],
+          ),
+        ); // Safe fallback
     }
   }
 
@@ -84,15 +95,6 @@ class _MobileLandingpageState extends State<MobileLandingpage> {
     );
   }
 
-  Widget mobilelanding(double scrWitdth, double scrHeight) {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [photo(scrWitdth, scrHeight), body(scrWitdth, scrHeight)],
-      ),
-    );
-  }
-
   Widget photo(double scrWitdth, double scrHeight) {
     return IntrinsicHeight(
       child: SizedBox(
@@ -104,7 +106,7 @@ class _MobileLandingpageState extends State<MobileLandingpage> {
               child: Align(
                 alignment: Alignment.bottomRight,
                 child: BrightSunshine(
-                  text: "Hello World!",
+                  text: "Experience comfort, convenience & true Serenity!",
                   fontsize: Fontsize.mobileH2,
                   fontWeight: FontWeight.w600,
                   fontcolor: AppColors.mainBG,
@@ -221,13 +223,13 @@ class _NavigationdrawerState extends State<Navigationdrawer> {
                   tileNum: 4,
                   currentpage: widget.currentpage,
                 ),
-                CustomNavigationTile(
-                  icon: Icons.king_bed_outlined,
-                  text: "Amenities",
-                  changepage: widget.changepage,
-                  tileNum: 5,
-                  currentpage: widget.currentpage,
-                ),
+                // CustomNavigationTile(
+                //   icon: Icons.king_bed_outlined,
+                //   text: "Amenities",
+                //   changepage: widget.changepage,
+                //   tileNum: 5,
+                //   currentpage: widget.currentpage,
+                // ),
               ],
             ),
           ),

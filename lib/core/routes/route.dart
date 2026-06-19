@@ -2,7 +2,7 @@
 import 'package:azure_website/features/Landingpage.dart';
 
 //Phone Routes
-import 'package:azure_website/features/Mobile/MobileAmenitiespage.dart';
+import 'package:azure_website/features/Mobile/MobileAmenities.dart';
 
 //Tablet Routes
 

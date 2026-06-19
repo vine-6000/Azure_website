@@ -4,7 +4,7 @@ import 'package:azure_website/core/constants/Fontsizes.dart';
 import 'package:azure_website/features/Desktop/DesktopAmenities.dart';
 import 'package:azure_website/features/Desktop/DesktopBookingInfo.dart';
 import 'package:azure_website/features/Desktop/DesktopUserReviews.dart';
-import 'package:azure_website/features/Mobile/MobileAmenitiespage.dart';
+import 'package:azure_website/features/Mobile/MobileAmenities.dart';
 import 'package:azure_website/features/Mobile/MobileMeetHostspage.dart';
 import 'package:azure_website/widgets/Snakcbar.dart';
 import 'package:flutter/material.dart';
