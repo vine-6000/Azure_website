@@ -2,8 +2,10 @@ import 'package:azure_website/core/constants/Colors.dart';
 import 'package:azure_website/core/constants/Fonts.dart';
 import 'package:azure_website/core/constants/Fontsizes.dart';
 import 'package:azure_website/features/Mobile/MobileAmenities.dart';
+import 'package:azure_website/features/Mobile/MobileBookingInfo.dart';
 import 'package:azure_website/features/Mobile/MobileMeetHostspage.dart';
 import 'package:azure_website/features/Mobile/MobileUserReviews.dart';
+import 'package:azure_website/features/Mobile/MovileFooter.dart';
 import 'package:azure_website/widgets/Snakcbar.dart';
 import 'package:flutter/material.dart';
 
@@ -67,8 +69,12 @@ class _MobileLandingpageState extends State<MobileLandingpage> {
               body(width, height),
               SizedBox(height: 30),
               Mobileamenitiespage(),
+
+              Mobilebookinginfo(),
               SizedBox(height: 30),
               MobileUserReviews(),
+              SizedBox(height: 30),
+              MobileFooter(),
             ],
           ),
         ); // Safe fallback

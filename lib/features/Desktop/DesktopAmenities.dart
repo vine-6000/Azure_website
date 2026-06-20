@@ -175,6 +175,7 @@ class Ammeneties extends StatelessWidget {
   ];
   static final List<Widget> subheading = [
     Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CanvaSans(
           text: "Our rates are ₱200 per day per person.",

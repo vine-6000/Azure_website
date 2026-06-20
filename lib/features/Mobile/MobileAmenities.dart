@@ -140,11 +140,13 @@ class Ammeneties extends StatelessWidget {
   ];
   static final List<Widget> subheading = [
     Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CanvaSans(
-          text: "Our rates are mobileBody per day per person.",
+          text: "Our rates are ₱200 per day per person.",
           fontsize: Fontsize.mobileBody,
           fontcolor: AppColors.softblack,
+          textAlign: TextAlign.start,
         ),
         CanvaSans(
           text: "Hours of operation are from Wednesday to Monday",
@@ -156,6 +158,7 @@ class Ammeneties extends StatelessWidget {
     CanvaSans(text: "", fontsize: Fontsize.mobileBody),
     Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+
       children: [
         CanvaSans(
           text: "\u2022 Refrigerator",
@@ -211,6 +214,7 @@ class Ammeneties extends StatelessWidget {
         padding: const EdgeInsets.all(35),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             CanvaSans(
               text: ammenetieHeader[ammeneti_num - 1],

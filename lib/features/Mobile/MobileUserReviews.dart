@@ -45,7 +45,7 @@ class _MobileUserReviewsState extends State<MobileUserReviews> {
             padding: const EdgeInsets.all(8.0),
             child: Align(
               alignment: Alignment.bottomCenter,
-              child: Text("(I made this scrollable btw)"),
+              child: Text("(this is scrollable)"),
             ),
           ),
         ],
