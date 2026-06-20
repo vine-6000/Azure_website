@@ -45119,7 +45119,7 @@ $1(a){return new A.vr(null)},
 $S:245}
 A.vr.prototype={
 J(a){var s=null,r=A.kQ(s,A.aEd(B.aa,s,s,B.Nx),s),q=A.aPa(a)
-return new A.vi($.aNt(),A.aYK(),"Flutter Demo",r,q,s)}}
+return new A.vi($.aNt(),A.aYK(),"Serenity Suite",r,q,s)}}
 A.azq.prototype={
 $0(){},
 $S:0}

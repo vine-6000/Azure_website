@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Flutter Demo',
+      title: 'Serenity Suite', // <--- Change this to your web app name!
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
