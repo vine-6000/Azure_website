@@ -100,6 +100,7 @@ class _DesktopAmenitiesState extends State<DesktopAmenities> {
                     ),
                     leftbutton(leftameneties),
                     rightbutton(rightameneties),
+                    photoMarker(current_photo_number, scrWidth),
                   ],
                 ),
               ),
@@ -109,6 +110,33 @@ class _DesktopAmenitiesState extends State<DesktopAmenities> {
       ),
     );
   }
+}
+
+Widget photoMarker(int current_photo_number, double scrWidth) {
+  return Positioned(
+    left: 0,
+    right: scrWidth * 0.4,
+    bottom: 30,
+    child: Center(
+      child: SizedBox(
+        width: 170,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: List.generate(5, (index) {
+            int dotNumber = index + 1;
+            return Icon(
+              current_photo_number == dotNumber
+                  ? Icons.circle
+                  : Icons.circle_outlined,
+              color: Colors.white,
+              size: 18,
+            );
+          }),
+        ),
+      ),
+    ),
+  );
 }
 
 Widget leftbutton(Function() changeAmenneties) {

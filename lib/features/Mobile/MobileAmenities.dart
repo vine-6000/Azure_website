@@ -113,11 +113,39 @@ class _MobileamenitiespageState extends State<Mobileamenitiespage> {
                   ),
                 ),
               ),
+
+              photoMarker(current_photo_number, scrWidth),
             ],
           ),
         ),
         Ammeneties(ammeneti_num: current_photo_number, ammeneti_reason: ""),
       ],
+    );
+  }
+
+  Widget photoMarker(int current_photo_number, double scrWidth) {
+    return Padding(
+      padding: const EdgeInsets.all(15),
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: SizedBox(
+          width: 100,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: List.generate(5, (index) {
+              int dotNumber = index + 1;
+              return Icon(
+                current_photo_number == dotNumber
+                    ? Icons.circle
+                    : Icons.circle_outlined,
+                color: Colors.white,
+                size: 13,
+              );
+            }),
+          ),
+        ),
+      ),
     );
   }
 }

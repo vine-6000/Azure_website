@@ -3,6 +3,7 @@ import 'package:azure_website/core/constants/Fonts.dart';
 import 'package:azure_website/core/constants/Fontsizes.dart';
 import 'package:azure_website/features/Desktop/DesktopAmenities.dart';
 import 'package:azure_website/features/Desktop/DesktopBookingInfo.dart';
+import 'package:azure_website/features/Desktop/DesktopFooter.dart';
 import 'package:azure_website/features/Desktop/DesktopUserReviews.dart';
 import 'package:azure_website/features/Mobile/MobileAmenities.dart';
 import 'package:azure_website/features/Mobile/MobileMeetHostspage.dart';
@@ -117,6 +118,8 @@ class _DesktopLandingpageState extends State<DesktopLandingpage> {
           DesktopBookinginfo(),
           SizedBox(height: 200),
           Desktopuserreviews(),
+          SizedBox(height: 100),
+          DesktopFooter(),
           //  Divider(thickness: 5),
         ],
       ),
